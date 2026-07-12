@@ -832,8 +832,13 @@ section { position: relative; }
   margin-top: 2.25rem;
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-  max-width: 46rem;
+  grid-template-columns: 1fr;
+  max-width: 30rem;
+}
+
+@media (min-width: 640px) {
+  .contact-details { grid-template-columns: repeat(2, 1fr); max-width: 40rem; }
+  .contact-details div:last-child { grid-column: 1 / -1; }
 }
 .contact-details dt { font-size: var(--fs-small); color: var(--meadow); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 .contact-details dd { margin: 0.2rem 0 0; font-size: 1.1rem; }
