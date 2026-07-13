@@ -90,13 +90,14 @@ p { margin: 0; }
 }
 
 .skip-link {
-  position: absolute; left: 1rem; top: -3rem;
+  position: absolute; left: 1rem; top: 0;
+  transform: translateY(-150%);
   background: var(--forest); color: var(--paper);
   padding: 0.75rem 1.25rem; border-radius: var(--radius-sm);
-  transition: top 0.2s var(--ease);
+  transition: transform 0.2s var(--ease);
   z-index: 100;
 }
-.skip-link:focus { top: 1rem; }
+.skip-link:focus { transform: translateY(1rem); }
 
 /* ==========================================================================
    Shared layout helpers
@@ -817,6 +818,7 @@ section { position: relative; }
   margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
 }
 
@@ -846,6 +848,9 @@ section { position: relative; }
 .contact-details a:hover { border-color: currentColor; }
 
 .referral-embed {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
   margin-top: clamp(2rem, 4vw, 3rem);
   background: var(--paper);
   color: var(--ink);
@@ -854,6 +859,7 @@ section { position: relative; }
   box-shadow: var(--shadow-soft);
   min-height: 8rem;
 }
+.referral-embed iframe { max-width: 100%; }
 
 /* ==========================================================================
    Footer
